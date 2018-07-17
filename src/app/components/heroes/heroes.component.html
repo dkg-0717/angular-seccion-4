@@ -1,16 +1,16 @@
 <h1 class="animated fadeIn fast">Heroes Comic App</h1>
 <hr>
 <div class="card-columns">
-    <div *ngFor="let h of heroes; let i" class="card">
+    <div *ngFor="let h of heroes; let i = index" class="card">
         <img class="card-img-top" [src]="h.img" [alt]="h.nombre">
         <div class="card-body">
             <h5 class="card-title">{{ h.nombre }}</h5>
             <p class="card-text">{{ h.bio }}</p>
             <p class="card-text"><small class="text-muted">{{ h.aparicion | date }}</small></p>
-            <!-- <button (click)="verMas(h)" type="button" class="btn btn-outline-primary btn-block">
+            <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block"> 
                 ver mas...
-            </button> -->
-            <a [routerLink]="['/heroe', i]" class="btn btn-outline-primary btn-block"> Ver mas </a>
+            </button>
+            <!-- <a [routerLink]="['/heroe', i]" class="btn btn-outline-primary btn-block"> Ver mas </a> -->
         </div>
     </div>
 </div>
