@@ -64,8 +64,8 @@ export class HeroesService {
         return this.heroes;
     }
 
-    getHeroe(id) {
-      this.heroe.push(this.heroes[id]);
+    getHeroe(idx:string) {
+      return this.heroes[idx];
     }
 
 }
