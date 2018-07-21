@@ -9,12 +9,15 @@ import { ActivatedRoute } from '@angular/router';
 export class FheroesComponent implements OnInit {
 
   heroe:Heroe[] = [];
+  termino:string;
 
   constructor(private activatedRoute: ActivatedRoute, private heroesService: HeroesService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe( params => {
+      this.termino = params['termino'];
       this.heroe = this.heroesService.buscarHeroes(params['termino']);
+      console.log(this.heroe);
     });
   }
 

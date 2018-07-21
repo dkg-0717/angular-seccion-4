@@ -1,16 +1,13 @@
-<h1 class="animated fadeIn fast">Heroes Comic App</h1>
+<h1 class="animated fadeIn fast">Buscando: <small>{{ termino }}</small></h1>
 <hr>
-<div class="card-columns">
-    <div *ngFor="let h of heroe; let i = index" class="card">
-        <img class="card-img-top" [src]="h.img" [alt]="h.nombre">
-        <div class="card-body">
-            <h5 class="card-title">{{ h.nombre }}</h5>
-            <p class="card-text">{{ h.bio | slice:0:80 }}...</p>
-            <p class="card-text"><small class="text-muted">{{ h.aparicion | date }}</small></p>
-            <!-- <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block"> 
-                ver mas...
-            </button> -->
-            <!-- <a [routerLink]="['/heroe', i]" class="btn btn-outline-primary btn-block"> Ver mas </a> -->
+<div class="row animated fadeIn fast" *ngIf="!heroe.length">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No se encontraron resultados para {{ termino }}
         </div>
     </div>
+</div>
+<div class="card-columns">
+    <!--  -->
+    <app-heroe-tarjeta [heroe]="h" *ngFor="let h of heroe; let i = index"></app-heroe-tarjeta>
 </div>
